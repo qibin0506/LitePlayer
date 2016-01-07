@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="top"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/play_singer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textColor="@android:color/white"
+        android:textSize="15sp" />
+    
+    <org.loader.liteplayer.ui.CDView
+        android:layout_centerInParent="true"
+        android:id="@+id/play_cdview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    
+    <org.loader.liteplayer.ui.LrcView
+        xmlns:lrc="http://schemas.android.com/apk/res/org.loader.liteplayer"
+        android:id="@+id/play_first_lrc"
+        android:layout_below="@id/play_cdview"
+        android:layout_marginTop="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        lrc:textSize="15sp"
+        lrc:normalTextColor="@android:color/white"
+        lrc:currentTextColor="@android:color/white"
+        lrc:dividerHeight="0dp"
+        lrc:rows="1" />
+
+</RelativeLayout>

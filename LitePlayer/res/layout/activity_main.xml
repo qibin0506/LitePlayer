@@ -1,0 +1,59 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <org.loader.liteplayer.ui.ScrollRelativeLayout
+        android:id="@+id/rl_main_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFF1F1F1"
+        tools:context=".MainActivity" >
+
+        <org.loader.liteplayer.ui.Indicator
+            xmlns:indicator="http://schemas.android.com/apk/res/org.loader.liteplayer"
+            android:id="@+id/main_indicator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            indicator:color="@color/main"
+            indicator:height="2dp" >
+
+            <TextView
+                android:id="@+id/tv_main_local"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="本地歌曲" />
+
+            <TextView
+                android:id="@+id/tv_main_remote"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="网络搜索"
+                android:textColor="@color/main_dark" />
+        </org.loader.liteplayer.ui.Indicator>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vp_main_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/main_indicator"
+            android:overScrollMode="never" />
+    </org.loader.liteplayer.ui.ScrollRelativeLayout>
+    
+    <View
+        android:id="@+id/view_pop_show"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#88666666"
+        android:visibility="gone" />
+
+</FrameLayout>

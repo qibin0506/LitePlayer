@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
+    android:paddingTop="5dp" >
+
+    <LinearLayout
+        android:id="@+id/ll_search_btn_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/search_btn_bg"
+        android:orientation="vertical"
+        android:padding="5dp" >
+
+        <TextView
+            android:id="@+id/tv_search_show"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawableLeft="@drawable/search_drawable_left"
+            android:text="搜索"
+            android:textColor="#FF666666" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_search_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/search_btn_bg"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        android:visibility="gone" >
+
+        <EditText
+            android:id="@+id/et_search_content"
+            style="?android:attr/textViewStyle"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@null"
+            android:hint="搜索"
+            android:padding="2dp"
+            android:textColor="#FF666666" />
+
+        <ImageButton
+            android:id="@+id/ib_search_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:padding="0dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/search_drawable_left" />
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/pb_search_wait"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:visibility="gone" />
+
+    <ListView
+        android:id="@+id/lv_search_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:cacheColorHint="@android:color/transparent"
+        android:listSelector="@android:color/transparent"
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        android:visibility="gone" />
+
+</LinearLayout>
