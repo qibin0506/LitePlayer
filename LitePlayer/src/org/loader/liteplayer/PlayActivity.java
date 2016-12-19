@@ -275,8 +275,8 @@ public class PlayActivity extends BaseActivity implements OnClickListener {
 	@Override
 	public void onPublish(int progress) {
 		mPlaySeekBar.setProgress(progress);
-		if(mLrcViewOnFirstPage.hasLrc()) mLrcViewOnFirstPage.changeCurrent(progress);
-		if(mLrcViewOnSecondPage.hasLrc()) mLrcViewOnSecondPage.changeCurrent(progress);
+		if(mLrcViewOnFirstPage.hasLrc()) mLrcViewOnFirstPage.setProgress(progress);
+		if(mLrcViewOnSecondPage.hasLrc()) mLrcViewOnSecondPage.setProgress(progress);
 	}
 
 	@Override
