@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
-        lrc:textSize="18sp"
+        android:textSize="18sp"
         lrc:normalTextColor="@android:color/white"
         lrc:currentTextColor="@color/main"
         lrc:dividerHeight="20dp"
