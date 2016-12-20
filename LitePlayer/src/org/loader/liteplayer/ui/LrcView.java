@@ -38,7 +38,10 @@ import java.util.regex.Pattern;
  */
 public class LrcView extends View {
 
+	private static final int HORIZONTAL_MSG_WHAT = -125;
+	private static final int HORIZONTAL_TIME = 200;
 	private static final int SCROLL_TIME = 500;
+	private static final int HORIZONTAL_OFFSET = 2;
 	private static final String DEFAULT_TEXT = "暂无歌词";
 
 	private List<LrcLine> mLrcLines = new LinkedList<>();
@@ -205,7 +208,8 @@ public class LrcView extends View {
 			if (contentWidth - Math.abs(mCurrentXOffset) < width) {
 				mCurrentXOffset = 0;
 			} else {
-				mHandler.sendEmptyMessage(1);
+				mHandler.sendEmptyMessageDelayed(HORIZONTAL_MSG_WHAT, HORIZONTAL_TIME);
+//				mHandler.sendEmptyMessage(1);
 			}
 		} else {
 			float currentX = (width - mCurrentPaint.measureText(currentLrc)) / 2;
@@ -469,10 +473,10 @@ public class LrcView extends View {
 
 		@Override
 		public void handleMessage(Message msg) {
-			if (msg.what == 1 && mLrcViewRef.get() != null) {
-				mLrcViewRef.get().mCurrentXOffset--;
+			if (msg.what == HORIZONTAL_MSG_WHAT && mLrcViewRef.get() != null) {
+				mLrcViewRef.get().mCurrentXOffset -= HORIZONTAL_OFFSET;
 				mLrcViewRef.get().invalidate();
-				sendEmptyMessageDelayed(1, 500);
+//				sendEmptyMessageDelayed(1, 500);
 			}
 		}
 	}
