@@ -17,6 +17,8 @@ import android.view.View;
 import android.view.animation.LinearInterpolator;
 import android.widget.Scroller;
 
+import com.haiersmart.sfnation.R;
+
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -166,7 +168,7 @@ public class LrcView extends View {
 			canvas.drawBitmap(mBackground, new Matrix(), null);
 		}
 
-		// float centerY = (getMeasuredHeight() + mTextBounds.height() - mDividerHeight) / 2;
+//		 float centerY = (getMeasuredHeight() + mTextBounds.height() - mDividerHeight) / 2;
 		float centerY = (getMeasuredHeight() + mTextBounds.height()) / 2;
 		if (mLrcLines.isEmpty()) {
 			canvas.drawText(DEFAULT_TEXT,
@@ -249,7 +251,7 @@ public class LrcView extends View {
 		long milInt = Long.parseLong(sec[1].replaceAll("\\D+", "")
 				.replaceAll("\r", "").replaceAll("\n", "").trim());
 
-		return minInt * 60 * 1000 + secInt * 1000 + milInt * 10;
+		return minInt * 60 * 1000 + secInt * 1000 + milInt;// * 10;
 	}
 
 	/**
@@ -350,7 +352,9 @@ public class LrcView extends View {
 			}
 		}
 
-		mNextTime = mLrcLines.get(mLrcLines.size() - 1).time;
+		if (!mLrcLines.isEmpty()) {
+			mNextTime = mLrcLines.get(mLrcLines.size() - 1).time;
+		}
 	}
 
 	/**
@@ -402,6 +406,7 @@ public class LrcView extends View {
 				if (perLine == null) { continue;}
 				allLines.addAll(perLine);
 			}
+
 			// sort by time
 			Collections.sort(allLines);
 
@@ -433,6 +438,7 @@ public class LrcView extends View {
 		mCurrentLine = 0;
 		mNextTime = 0L;
 		mOffsetY = 0;
+		postInvalidate();
 	}
 
 	/**
